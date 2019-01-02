@@ -1,0 +1,31 @@
+DUK_USE_ASSERTIONS: true
+DUK_USE_DEBUG: false
+
+DUK_USE_ES6_OBJECT_PROTO_PROPERTY: true
+DUK_USE_JX: true
+DUK_USE_JC: true
+
+DUK_USE_NONSTD_ARRAY_SPLICE_DELCOUNT: true
+DUK_USE_NONSTD_JSON_ESC_U2028_U2029: true
+DUK_USE_NONSTD_STRING_FROMCHARCODE_32BIT: true
+DUK_USE_ES6_OBJECT_PROTO_PROPERTY: true
+DUK_USE_ES6_OBJECT_SETPROTOTYPEOF: true
+DUK_USE_ES6_PROXY: true
+DUK_USE_ZERO_BUFFER_DATA: true
+DUK_USE_SETJMP: true
+DUK_USE_LIGHTFUNC_BUILTINS: true
+DUK_USE_BUFFEROBJECT_SUPPORT: true
+DUK_USE_FASTINT: true
+DUK_USE_JSON_STRINGIFY_FASTPATH: true
+DUK_USE_GLOBAL_BINDING: true
+DUK_USE_PROMISE_BUILTIN: true
+
+DUK_USE_FATAL_HANDLER:
+  verbatim: |
+    #define DUK_USE_FATAL_HANDLER(udata,msg) do { \
+            const char *fatal_msg = (msg); /* avoid double evaluation */ \
+            (void) udata; \
+            fprintf(stderr, "*** FATAL ERROR: %s\n", fatal_msg ? fatal_msg : "no message"); \
+            fflush(stderr); \
+            abort(); \
+        } while (0)
