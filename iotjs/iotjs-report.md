@@ -28,4 +28,4 @@ Build command: {{build_command}}
 {{backtrace}}
 ```
 
-<sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/)</sup>
+<sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/) with {{fuzzer}}.</sup>
