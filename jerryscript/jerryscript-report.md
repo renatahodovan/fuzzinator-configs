@@ -1,27 +1,31 @@
 ###### Jerry version:
 
 ```
-Checked revision: {version}
-Build command: {build_command}
+Checked revision: {{version}}
+Build command: {{build_command}}
 ```
 
 ###### OS:
 
 ```
-{platform}
+{{platform}}
 ```
 
 ###### Test case:
 
 ```javascript
-{test}
+{% if reduced %}
+{{reduced}}
+{% else %}
+{{test}}
+{% endif %}
 ```
 
 ###### Backtrace:
 
 ```
-{stderr}
-{backtrace}
+{{stderr}}
+{{backtrace}}
 ```
 
-<sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/) with {fuzzer}. </sup>
+<sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/) with {{fuzzer}}. </sup>
