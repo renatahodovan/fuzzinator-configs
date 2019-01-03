@@ -1,0 +1,21 @@
+v8 version:
+
+Checked revision: {{version}}
+Build command: {{build_command}}
+
+OS: {{platform}}
+
+Test case:
+
+{% if reduced %}
+{{reduced}}
+{% else %}
+{{test}}
+{% endif %}
+
+Output:
+
+{{stderr}}
+{{backtrace}}
+
+Found by Fuzzinator (http://fuzzinator.readthedocs.io/) with {{fuzzer}}.
