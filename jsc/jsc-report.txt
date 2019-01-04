@@ -1,0 +1,16 @@
+Checked version: r{{version}}
+OS: {{platform}}
+Build command: {{build_command}}
+
+Load the test below with {{build_name}}:
+
+{% if reduced %}
+{{reduced}}
+{% else %}
+{{test}}
+{% endif %}
+
+Output:
+
+{{stderr}}
+{{backtrace}}
