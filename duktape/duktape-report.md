@@ -22,7 +22,7 @@ Checked revision: {{version}}
 
 ###### Backtrace:
 
-```
+```text
 {{stderr}}
 {{backtrace}}
 ```

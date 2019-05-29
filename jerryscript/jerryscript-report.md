@@ -20,14 +20,14 @@
 
 {% if stderr %}
 ###### Output
-```
+```text
 {{stderr}}
 ```
 {% endif %}
 
 {% if backtrace %}
 ###### Backtrace
-```
+```text
 {{backtrace}}
 ```
 {% endif %}

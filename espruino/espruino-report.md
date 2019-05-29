@@ -23,7 +23,7 @@ Build command: {{build_command}}
 
 ###### Backtrace:
 
-```
+```text
 {{stderr}}
 {{backtrace}}
 ```
