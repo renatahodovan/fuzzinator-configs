@@ -1,18 +1,15 @@
-###### Jerry version:
+###### JerryScript revision
+{{version}}
 
-```
-Checked revision: {{version}}
-Build command: {{build_command}}
-```
-
-###### OS:
-
-```
+###### Build platform
 {{platform}}
+
+###### Build steps
+```
+{{build_command}}
 ```
 
-###### Test case:
-
+###### Test case
 ```javascript
 {% if reduced %}
 {{reduced}}
@@ -21,11 +18,18 @@ Build command: {{build_command}}
 {% endif %}
 ```
 
-###### Backtrace:
-
+{% if stderr %}
+###### Output
 ```
 {{stderr}}
+```
+{% endif %}
+
+{% if backtrace %}
+###### Backtrace
+```
 {{backtrace}}
 ```
+{% endif %}
 
 <sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/) with {{fuzzer}}. </sup>
