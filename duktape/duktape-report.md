@@ -33,7 +33,7 @@ Checked revision: {{version}}
 {{build_command}}
 ```
 
-###### fuzz.yaml:
+###### duktape-fuzzinator-options.yaml:
 
 ```yaml
 {{build_config}}
