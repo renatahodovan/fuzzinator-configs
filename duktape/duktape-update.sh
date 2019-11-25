@@ -32,6 +32,5 @@ gcc -o duk \
     extras/console/duk_console.c \
     extras/logging/duk_logging.c \
     extras/module-duktape/duk_module_duktape.c \
-    extras/cbor/duk_cbor.c \
     linenoise/linenoise.c \
     -lm
