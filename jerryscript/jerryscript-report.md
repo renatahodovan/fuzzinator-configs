@@ -6,7 +6,7 @@
 
 ###### Build steps
 ```
-{{build_command}}
+{{build_command|replace('\n', ' \\\n'}}
 ```
 
 ###### Test case
