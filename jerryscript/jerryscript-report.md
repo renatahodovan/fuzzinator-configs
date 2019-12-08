@@ -1,12 +1,12 @@
 ###### JerryScript revision
-{{version}}
+{{version|trim}}
 
 ###### Build platform
 {{platform}}
 
 ###### Build steps
 ```
-{{build_command|replace('\n', ' \\\n'}}
+{{build_command|replace('\n', ' \\\n')|trim}}
 ```
 
 ###### Test case
@@ -21,14 +21,14 @@
 {% if stderr %}
 ###### Output
 ```text
-{{stderr}}
+{{stderr|trim}}
 ```
 {% endif %}
 
 {% if backtrace %}
 ###### Backtrace
 ```text
-{{backtrace}}
+{{backtrace|trim}}
 ```
 {% endif %}
 

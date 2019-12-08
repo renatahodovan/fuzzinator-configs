@@ -1,7 +1,7 @@
 v8 version:
 
-Checked revision: {{version}}
-Build command: {{build_command}}
+Checked revision: {{version|trim}}
+Build command: {{build_command|trim}}
 
 OS: {{platform}}
 
@@ -15,7 +15,7 @@ Test case:
 
 Output:
 
-{{stderr}}
-{{backtrace}}
+{{stderr|trim}}
+{{backtrace|trim}}
 
 Found by Fuzzinator (http://fuzzinator.readthedocs.io/) with {{fuzzer}}.

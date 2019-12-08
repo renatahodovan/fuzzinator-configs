@@ -1,7 +1,7 @@
 ###### Duktape version:
 
 ```
-Checked revision: {{version}}
+Checked revision: {{version|trim}}
 ```
 
 ###### OS:
@@ -23,20 +23,20 @@ Checked revision: {{version}}
 ###### Backtrace:
 
 ```text
-{{stderr}}
-{{backtrace}}
+{{stderr|trim}}
+{{backtrace|trim}}
 ```
 
 ###### Build script:
 
 ```bash
-{{build_command}}
+{{build_command|trim}}
 ```
 
 ###### duktape-fuzzinator-options.yaml:
 
 ```yaml
-{{build_config}}
+{{build_config|trim}}
 ```
 
 <sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/) with {{fuzzer}}. </sup>

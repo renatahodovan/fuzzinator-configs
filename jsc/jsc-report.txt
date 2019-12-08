@@ -1,8 +1,8 @@
-Checked version: r{{version}}
+Checked version: r{{version|trim}}
 OS: {{platform}}
-Build command: {{build_command}}
+Build command: {{build_command|trim}}
 
-Load the test below with {{build_name}}:
+Load the test below with {{build_name|trim}}:
 
 {% if reduced %}
 {{reduced}}
@@ -12,5 +12,5 @@ Load the test below with {{build_name}}:
 
 Output:
 
-{{stderr}}
-{{backtrace}}
+{{stderr|trim}}
+{{backtrace|trim}}

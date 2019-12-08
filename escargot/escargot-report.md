@@ -1,8 +1,8 @@
 ###### Escargot version:
 
 ```
-Checked revision: {{version}}
-Build command: {{build_command}}
+Checked revision: {{version|trim}}
+Build command: {{build_command|trim}}
 ```
 
 ###### OS:
@@ -24,8 +24,8 @@ Build command: {{build_command}}
 ###### Backtrace:
 
 ```text
-{{stderr}}
-{{backtrace}}
+{{stderr|trim}}
+{{backtrace|trim}}
 ```
 
 <sup>Found by [Fuzzinator](http://fuzzinator.readthedocs.io/) with {{fuzzer}}. </sup>
