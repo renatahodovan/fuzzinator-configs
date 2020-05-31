@@ -170,6 +170,8 @@ grammar ECMAScript;
             case DecimalLiteral:
             case HexIntegerLiteral:
             case StringLiteral:
+            case PlusPlus:
+            case MinusMinus:
                 // After any of the tokens above, no regex literal can follow.
                 return false;
             default:
@@ -196,7 +198,7 @@ sourceElements
 ///     Statement
 ///     FunctionDeclaration
 sourceElement
- : statement
+ : {_input.LA(1) != Function}? statement
  | functionDeclaration
  ;
 
@@ -220,7 +222,7 @@ statement
  : block
  | variableStatement
  | emptyStatement
- | expressionStatement
+ | {_input.LA(1) != OpenBrace}? expressionStatement
  | ifStatement
  | iterationStatement
  | continueStatement
@@ -281,7 +283,7 @@ emptyStatement
 /// ExpressionStatement :
 ///     [lookahead ∉ {{, function}] Expression ;
 expressionStatement
- : {(_input.LA(1) != OpenBrace) && (_input.LA(1) != Function)}? expressionSequence eos
+ : expressionSequence eos
  ;
 
 /// IfStatement :
@@ -452,7 +454,8 @@ elision
 ///     { PropertyNameAndValueList }
 ///     { PropertyNameAndValueList , }
 objectLiteral
- : '{' propertyNameAndValueList? ','? '}'
+ : '{' '}'
+ | '{' propertyNameAndValueList ','? '}'
  ;
 
 /// PropertyNameAndValueList :
@@ -1257,10 +1260,8 @@ fragment UnicodeLetter
  | [\u3105-\u312C]
  | [\u3131-\u318E]
  | [\u31A0-\u31B7]
- | [\u3400]
- | [\u4DB5]
- | [\u4E00]
- | [\u9FA5]
+ | [\u3400-\u4DBF]
+ | [\u4E00-\u9FFF]
  | [\uA000-\uA48C]
  | [\uAC00]
  | [\uD7A3]

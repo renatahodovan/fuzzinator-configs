@@ -8,11 +8,12 @@ setup, which can be a time-consuming task. Here, fuzzing configurations of
 various SUTs and fuzzers are collected, hence you only need to focus on
 your awesome test generator.
 
-The root directory is intended to contain subdirectories named after the target
-applications (plus a target-independent ``fuzzinator`` subdirectory). Each
-subdirectory may contain Fuzzinator_ configurations, update scripts, report
-format templates, or other resources, e.g., ANTLR_ v4 grammars_ for the
-Picireny_ reducer.
+The sut directory is intended to contain subdirectories named after the target
+applications. Each subdirectory may contain Fuzzinator configurations, update
+scripts, or report format templates. Format-specific resources,
+e.g., ANTLR_ v4 grammars_ for the Picireny_ reducer are in the reduce
+directory. Additionally, there is also a fuzzinator directory for target- and
+format-independent configurations.
 
 Almost all configuration and resource files should be general enough not to
 need any manual editing. Preferably, only configuration files ending with
