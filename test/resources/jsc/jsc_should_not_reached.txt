@@ -1,0 +1,16 @@
+SHOULD NEVER BE REACHED
+/Volumes/Data/EWS/WebKit/Source/JavaScriptCore/heap/Heap.cpp(790) : void JSC::Heap::endMarking()
+1   0x105627000 WTFCrash
+2   0x104e8bcd5 JSC::Heap::endMarking()
+3   0x104e8b466 JSC::Heap::markToFixpoint(double)
+4   0x104e8e215 JSC::Heap::collectInThread()
+5   0x104e9e179 JSC::Heap::Thread::work()
+6   0x105634524 WTF::AutomaticThread::start(WTF::Locker<WTF::LockBase> const&)::$_0::operator()() const
+7   0x1056342cd void std::__1::__invoke_void_return_wrapper<void>::__call<WTF::AutomaticThread::start(WTF::Locker<WTF::LockBase> const&)::$_0&>(WTF::AutomaticThread::start(WTF::Locker<WTF::LockBase> const&)::$_0&&&)
+8   0x1056340bc std::__1::__function::__func<WTF::AutomaticThread::start(WTF::Locker<WTF::LockBase> const&)::$_0, std::__1::allocator<WTF::AutomaticThread::start(WTF::Locker<WTF::LockBase> const&)::$_0>, void ()>::operator()()
+9   0x104c2b7ea std::__1::function<void ()>::operator()() const
+10  0x1056a1ede WTF::threadEntryPoint(void*)
+11  0x1056a3981 WTF::wtfThreadEntryPoint(void*)
+12  0x7fff96cc599d _pthread_body
+13  0x7fff96cc591a _pthread_body
+14  0x7fff96cc3351 thread_start

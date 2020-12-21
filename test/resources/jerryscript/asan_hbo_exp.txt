@@ -1,0 +1,12 @@
+{
+  "address": "0xf5400294",
+  "address_type": "address",
+  "error_type": "heap-buffer-overflow",
+  "file": "jerryscript/jerry-core/ecma/base/ecma-helpers-number.c",
+  "frame_id": "1",
+  "function": "ecma_number_parse_float",
+  "line": "945",
+  "mem_access": "READ of size 8",
+  "sanitizer": "AddressSanitizer",
+  "security": "Medium"
+}

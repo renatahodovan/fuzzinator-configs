@@ -1,0 +1,69 @@
+#0  0xf7fd3939 in __kernel_vsyscall ()
+#1  0xf7c90182 in raise () from /lib/i386-linux-gnu/libc.so.6
+#2  0xf7c7a2b6 in abort () from /lib/i386-linux-gnu/libc.so.6
+#3  0xf7c7a1c1 in ?? () from /lib/i386-linux-gnu/libc.so.6
+#4  0xf7c87fd9 in __assert_fail () from /lib/i386-linux-gnu/libc.so.6
+#5  0x0818ee74 in udp_unref (jfunc=4117812451, jthis=4119891091, jargv=0xffffbde8, jargc=0)
+    at iotjs/src/modules/iotjs_module_udp.c:348
+#6  0x081b60dd in ecma_op_function_call (func_obj_p=0xf570d4e0, this_arg_value=4119891091, arguments_list_p=0xffffbde8,
+    arguments_list_len=0) at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:815
+#7  0x08277fc9 in opfunc_call (frame_ctx_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:565
+#8  vm_execute (frame_ctx_p=0xffffbe50, arg_p=0xffffbe83, arg_list_len=3) at iotjs/deps/jerry/jerry-core/vm/vm.c:3478
+#9  0x082187ad in vm_run (bytecode_header_p=<optimized out>, this_binding_value=<optimized out>, lex_env_p=<optimized out>,
+    parse_opts=<optimized out>, arg_list_p=0x0, arg_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/vm/vm.c:3611
+#10 0x081b6443 in ecma_op_function_call (func_obj_p=0xf570be60, this_arg_value=4119885075, arguments_list_p=0x0, arguments_list_len=3)
+    at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:792
+#11 0x081eaa81 in ecma_builtin_function_prototype_dispatch_routine (builtin_routine_id=<optimized out>, this_arg_value=<optimized out>,
+    arguments_list=<optimized out>, arguments_number=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/ecma/builtin-objects/ecma-builtin-function-prototype.c:212
+#12 0x0820b10b in ecma_builtin_dispatch_routine (builtin_object_id=<optimized out>, builtin_routine_id=<optimized out>,
+    this_arg_value=<optimized out>, arguments_list_p=<optimized out>, arguments_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/ecma/builtin-objects/ecma-builtins.c:1016
+#13 ecma_builtin_dispatch_call (obj_p=<optimized out>, this_arg_value=<optimized out>, arguments_list_p=<optimized out>,
+    arguments_list_len=<optimized out>) at iotjs/deps/jerry/jerry-core/ecma/builtin-objects/ecma-builtins.c:1041
+#14 0x081b6471 in ecma_op_function_call (func_obj_p=0xf5703ee0, this_arg_value=4117806691, arguments_list_p=0xffffc258,
+    arguments_list_len=4) at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:716
+#15 0x08277fc9 in opfunc_call (frame_ctx_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:565
+#16 vm_execute (frame_ctx_p=0xffffc2d0, arg_p=0xffffc303, arg_list_len=2) at iotjs/deps/jerry/jerry-core/vm/vm.c:3478
+#17 0x082187ad in vm_run (bytecode_header_p=<optimized out>, this_binding_value=<optimized out>, lex_env_p=<optimized out>,
+    parse_opts=<optimized out>, arg_list_p=0x0, arg_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/vm/vm.c:3611
+#18 0x081b6443 in ecma_op_function_call (func_obj_p=0xf570b320, this_arg_value=4119885107, arguments_list_p=0x0, arguments_list_len=2)
+    at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:792
+#19 0x08277fc9 in opfunc_call (frame_ctx_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:565
+#20 vm_execute (frame_ctx_p=0xffffc590, arg_p=0xffffc5c3, arg_list_len=2) at iotjs/deps/jerry/jerry-core/vm/vm.c:3478
+#21 0x082187ad in vm_run (bytecode_header_p=<optimized out>, this_binding_value=<optimized out>, lex_env_p=<optimized out>,
+    parse_opts=<optimized out>, arg_list_p=0x0, arg_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/vm/vm.c:3611
+#22 0x081b6443 in ecma_op_function_call (func_obj_p=0xf570b410, this_arg_value=4117776835, arguments_list_p=0x0, arguments_list_len=2)
+    at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:792
+#23 0x08277fc9 in opfunc_call (frame_ctx_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:565
+#24 vm_execute (frame_ctx_p=0xffffc810, arg_p=0xffffc843, arg_list_len=0) at iotjs/deps/jerry/jerry-core/vm/vm.c:3478
+#25 0x082187ad in vm_run (bytecode_header_p=<optimized out>, this_binding_value=<optimized out>, lex_env_p=<optimized out>,
+    parse_opts=<optimized out>, arg_list_p=0x0, arg_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/vm/vm.c:3611
+#26 0x081b6443 in ecma_op_function_call (func_obj_p=0xf570b2f0, this_arg_value=4117776835, arguments_list_p=0x0, arguments_list_len=0)
+    at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:792
+#27 0x08277fc9 in opfunc_call (frame_ctx_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:565
+#28 vm_execute (frame_ctx_p=0xffffcab0, arg_p=0xffffcae3, arg_list_len=0) at iotjs/deps/jerry/jerry-core/vm/vm.c:3478
+#29 0x082187ad in vm_run (bytecode_header_p=<optimized out>, this_binding_value=<optimized out>, lex_env_p=<optimized out>,
+    parse_opts=<optimized out>, arg_list_p=0x0, arg_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/vm/vm.c:3611
+#30 0x081b63f0 in ecma_op_function_call (func_obj_p=0xf57010c0, this_arg_value=72, arguments_list_p=0xffffccc4, arguments_list_len=0)
+    at iotjs/deps/jerry/jerry-core/ecma/operations/ecma-function-object.c:792
+#31 0x08277fc9 in opfunc_call (frame_ctx_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:565
+#32 vm_execute (frame_ctx_p=0xffffcd30, arg_p=0xffffcd63, arg_list_len=0) at iotjs/deps/jerry/jerry-core/vm/vm.c:3478
+#33 0x082187ad in vm_run (bytecode_header_p=<optimized out>, this_binding_value=<optimized out>, lex_env_p=<optimized out>,
+    parse_opts=<optimized out>, arg_list_p=0x0, arg_list_len=<optimized out>)
+    at iotjs/deps/jerry/jerry-core/vm/vm.c:3611
+#34 0x08199d86 in vm_run_global (bytecode_p=<optimized out>) at iotjs/deps/jerry/jerry-core/vm/vm.c:266
+#35 jerry_run (func_val=4117762291) at iotjs/deps/jerry/jerry-core/api/jerry.c:550
+#36 0x081569e0 in iotjs_jhelper_eval (name=0x833c700 <str> "iotjs.js", name_len=8,
+    data=0x837a460 <iotjs_s> "/* Copyright 2015-present Samsung Electronics Co., Ltd. and other contributors\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance w"..., size=4730,
+    strict_mode=<optimized out>) at iotjs/src/iotjs_binding.c:379
+#37 0x08155156 in iotjs_run (env=0x88ccee0 <current_env>) at iotjs/src/iotjs.c:175
+#38 0x081552ea in iotjs_start (env=<optimized out>) at iotjs/src/iotjs.c:224
+#39 iotjs_entry (argc=2, argv=0xffffcfa4) at iotjs/src/iotjs.c:312
+#40 0xf7c7b751 in __libc_start_main () from /lib/i386-linux-gnu/libc.so.6
+#41 0x08080872 in _start ()

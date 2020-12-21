@@ -1,0 +1,15 @@
+# Fatal error in ../../v8/src/objects/slots.h, line 77
+# Debug check failed: IsAligned(ptr, kSlotDataAlignment).
+#
+#
+#
+#FailureMessage Object: 0x7fff19c33e80#0 0x7f807d0199b9 base::debug::CollectStackTrace()
+#1 0x7f807cf18383 base::debug::StackTrace::StackTrace()
+#2 0x7f807177fc4b gin::(anonymous namespace)::PrintStackTrace()
+#3 0x7f80687fd988 V8_Fatal()
+#4 0x7f80687fd6f5 v8::base::(anonymous namespace)::DefaultDcheckHandler()
+#5 0x7f80724633c9 v8::internal::ScopeInfo::FunctionContextSlotIndex()
+#6 0x7f80724e0f6b v8::internal::V8HeapExplorer::ExtractContextReferences()
+#7 0x7f80724e481d v8::internal::V8HeapExplorer::IterateAndExtractReferences()
+#8 0x7f80724e6950 v8::internal::HeapSnapshotGenerator::GenerateSnapshot()
+#9 0x7f80724d5341 v8::internal::HeapProfiler::TakeSnapshot()

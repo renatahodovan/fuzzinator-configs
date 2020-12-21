@@ -1,0 +1,5 @@
+{
+  "file": "duk_js_var.c",
+  "function": "duk_js_putvar_activation",
+  "line": "1349"
+}

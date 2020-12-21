@@ -1,0 +1,12 @@
+{
+  "address": "0xf4700760",
+  "address_type": "address",
+  "error_type": "heap-use-after-free",
+  "file": "jerryscript/jerry-core/ecma/base/ecma-gc.c",
+  "frame_id": "0",
+  "function": "ecma_ref_object",
+  "line": "133",
+  "mem_access": "READ of size 2",
+  "sanitizer": "AddressSanitizer",
+  "security": "High"
+}

@@ -1,0 +1,7 @@
+{
+  "condition": "jsvGetLocks(var) < 15",
+  "error_type": "ASSERT",
+  "file": "src/jsvar.c",
+  "line": "570",
+  "security": "None"
+}

@@ -1,0 +1,5 @@
+{
+  "file": "../src/util/Vector.h",
+  "function": "Escargot::Vector<Escargot::ObjectStructureItem, GCUtil::gc_malloc_ignore_off_page_allocator<Escargot::ObjectStructureItem>, 120>::operator[]",
+  "line": "219"
+}

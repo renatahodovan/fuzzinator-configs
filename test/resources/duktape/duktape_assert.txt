@@ -1,0 +1,1 @@
+*** FATAL ERROR: assertion failed: DUK_HOBJECT_IS_COMPFUNC(DUK_ACT_GET_FUNC(thr->callstack_curr)) (prep/fuzz/duktape.c:78901)

@@ -1,0 +1,1 @@
+escargot: ../src/util/Vector.h:219: T& Escargot::Vector<T, Allocator, glowFactor>::operator[](size_t) [with T = Escargot::ObjectStructureItem; Allocator = GCUtil::gc_malloc_ignore_off_page_allocator<Escargot::ObjectStructureItem>; int glowFactor = 120; size_t = long unsigned int]: Assertion `idx < m_size' failed.

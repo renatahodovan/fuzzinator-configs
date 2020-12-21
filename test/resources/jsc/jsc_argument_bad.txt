@@ -1,0 +1,23 @@
+ARGUMENT BAD: time, time >= 0
+/Volumes/Data/slave/sierra-debug/build/Source/WebCore/platform/mac/WebVideoFullscreenHUDWindowController.mm(561) : NSString *timeToString(double)
+1   0x10e2e09dd WTFCrash
+2   0x116314f3a timeToString(double)
+3   0x116314ec8 -[WebVideoFullscreenHUDWindowController remainingTimeText]
+4   0x1163142f8 -[WebVideoFullscreenHUDWindowController updateTime]
+5   0x116312e26 -[WebVideoFullscreenHUDWindowController scheduleTimeUpdate]
+6   0x116313077 -[WebVideoFullscreenHUDWindowController fadeWindowIn]
+7   0x116310347 -[WebVideoFullscreenController windowDidEnterFullscreen]
+8   0x116311907 -[WebVideoFullscreenWindow animatedResizeDidEnd]
+9   0x116312031 -[WebVideoFullscreenWindow animationDidEnd:]
+10  0x7fff9acc5f2a __NSThreadPerformPerform
+11  0x7fff9927a581 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__
+12  0x7fff9925b907 __CFRunLoopDoSources0
+13  0x7fff9925ae76 __CFRunLoopRun
+14  0x7fff9925a874 CFRunLoopRunSpecific
+15  0x10be69439 runTest(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)
+16  0x10be67b5d runTestingServerLoop()
+17  0x10be670aa dumpRenderTree(int, char const**)
+18  0x10be69dad DumpRenderTreeMain(int, char const**)
+19  0x10bed0fe2 main
+20  0x7fffae32c255 start
+21  0x2

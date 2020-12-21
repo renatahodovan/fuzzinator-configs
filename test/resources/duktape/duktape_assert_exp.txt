@@ -1,0 +1,7 @@
+{
+  "condition": "DUK_HOBJECT_IS_COMPFUNC(DUK_ACT_GET_FUNC(thr->callstack_curr))",
+  "error_type": "assertion failed",
+  "file": "prep/fuzz/duktape.c",
+  "line": "78901",
+  "security": "None"
+}

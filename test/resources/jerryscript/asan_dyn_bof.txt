@@ -1,0 +1,57 @@
+=================================================================
+==354690==ERROR: AddressSanitizer: dynamic-stack-buffer-overflow on address 0xff9de46c at pc 0x566c170e bp 0xff9dded8 sp 0xff9ddec8
+WRITE of size 4 at 0xff9de46c thread T0
+    #0 0x566c170d in vm_loop jerryscript/jerry-core/vm/vm.c:1165
+    #1 0x566d26b3 in vm_execute jerryscript/jerry-core/vm/vm.c:4193
+    #2 0x566d2cbe in vm_run jerryscript/jerry-core/vm/vm.c:4301
+    #3 0x56658b9a in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:932
+    #4 0x56659465 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1131
+    #5 0x56660606 in ecma_op_general_object_ordinary_value jerryscript/jerry-core/ecma/operations/ecma-objects-general.c:324
+    #6 0x566604c6 in ecma_op_general_object_default_value jerryscript/jerry-core/ecma/operations/ecma-objects-general.c:289
+    #7 0x56667570 in ecma_op_object_default_value jerryscript/jerry-core/ecma/operations/ecma-objects.c:1733
+    #8 0x56651b03 in ecma_op_to_primitive jerryscript/jerry-core/ecma/operations/ecma-conversion.c:199
+    #9 0x56651dff in ecma_op_to_number jerryscript/jerry-core/ecma/operations/ecma-conversion.c:292
+    #10 0x566c7f6b in vm_loop jerryscript/jerry-core/vm/vm.c:2364
+    #11 0x566d26b3 in vm_execute jerryscript/jerry-core/vm/vm.c:4193
+    #12 0x566d2cbe in vm_run jerryscript/jerry-core/vm/vm.c:4301
+    #13 0x566bdb4a in vm_run_global jerryscript/jerry-core/vm/vm.c:321
+    #14 0x56603c7c in jerry_run jerryscript/jerry-core/api/jerry.c:595
+    #15 0x56600540 in main jerryscript/jerry-main/main-unix.c:759
+    #16 0xf7707ee4 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x1eee4)
+    #17 0x565fdc44 in _start (jerryscript/build/bin/jerry+0x18c44)
+
+Address 0xff9de46c is located in stack of thread T0
+SUMMARY: AddressSanitizer: dynamic-stack-buffer-overflow jerryscript/jerry-core/vm/vm.c:1165 in vm_loop
+Shadow bytes around the buggy address:
+  0x3ff3bc30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bc40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bc50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bc60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bc70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x3ff3bc80: 00 00 00 00 ca ca ca ca 00 00 00 00 00[04]cb cb
+  0x3ff3bc90: cb cb cb cb 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bca0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bcb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bcc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ff3bcd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==354690==ABORTING

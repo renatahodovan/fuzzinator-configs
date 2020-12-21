@@ -1,0 +1,1 @@
+ASSERT(jsvGetLocks(var) < 15) FAILED AT src/jsvar.c:570

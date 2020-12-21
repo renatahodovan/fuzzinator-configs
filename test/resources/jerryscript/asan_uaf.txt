@@ -1,0 +1,120 @@
+=================================================================
+==2285521==ERROR: AddressSanitizer: heap-use-after-free on address 0xf4700760 at pc 0x565de9ac bp 0xffbba8c8 sp 0xffbba8b8
+READ of size 2 at 0xf4700760 thread T0
+    #0 0x565de9ab in ecma_ref_object jerryscript/jerry-core/ecma/base/ecma-gc.c:133
+    #1 0x565f6bed in ecma_copy_value jerryscript/jerry-core/ecma/base/ecma-helpers-value.c:854
+    #2 0x56698bfe in vm_loop jerryscript/jerry-core/vm/vm.c:2119
+    #3 0x566a46b3 in vm_execute jerryscript/jerry-core/vm/vm.c:4193
+    #4 0x566a4cbe in vm_run jerryscript/jerry-core/vm/vm.c:4301
+    #5 0x5662ab9a in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:932
+    #6 0x5662b465 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1131
+    #7 0x56691434 in opfunc_call jerryscript/jerry-core/vm/vm.c:764
+    #8 0x566a4717 in vm_execute jerryscript/jerry-core/vm/vm.c:4199
+    #9 0x566a4cbe in vm_run jerryscript/jerry-core/vm/vm.c:4301
+    #10 0x5662ab9a in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:932
+    #11 0x5662b465 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1131
+    #12 0x5662e5d2 in ecma_process_promise_reaction_job jerryscript/jerry-core/ecma/operations/ecma-jobqueue.c:153
+    #13 0x5662f468 in ecma_process_all_enqueued_jobs jerryscript/jerry-core/ecma/operations/ecma-jobqueue.c:338
+    #14 0x565d5d52 in jerry_run_all_enqueued_jobs jerryscript/jerry-core/api/jerry.c:632
+    #15 0x565d2e0a in main jerryscript/jerry-main/main-unix.c:957
+    #16 0xf76d8ee4 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x1eee4)
+    #17 0x565cfc44 in _start (jerryscript/build/bin/jerry+0x18c44)
+
+0xf4700760 is located 0 bytes inside of 24-byte region [0xf4700760,0xf4700778)
+freed by thread T0 here:
+    #0 0xf79da814 in __interceptor_free (/usr/lib32/libasan.so.5+0x113814)
+    #1 0x56657d98 in jmem_heap_free_block_internal jerryscript/jerry-core/jmem/jmem-heap.c:476
+    #2 0x56657ed3 in jmem_heap_free_block jerryscript/jerry-core/jmem/jmem-heap.c:685
+    #3 0x566a4dbc in ecma_dealloc_extended_object jerryscript/jerry-core/ecma/base/ecma-alloc.c:123
+    #4 0x565e2df3 in ecma_gc_free_object jerryscript/jerry-core/ecma/base/ecma-gc.c:1336
+    #5 0x565e3954 in ecma_gc_run jerryscript/jerry-core/ecma/base/ecma-gc.c:1464
+    #6 0x565e3a68 in ecma_free_unused_memory jerryscript/jerry-core/ecma/base/ecma-gc.c:1508
+    #7 0x56657bfa in jmem_heap_gc_and_alloc_block jerryscript/jerry-core/jmem/jmem-heap.c:286
+    #8 0x56657c95 in jmem_heap_alloc_block jerryscript/jerry-core/jmem/jmem-heap.c:323
+    #9 0x566a4d99 in ecma_alloc_extended_object jerryscript/jerry-core/ecma/base/ecma-alloc.c:109
+    #10 0x565f806e in ecma_create_object jerryscript/jerry-core/ecma/base/ecma-helpers.c:82
+    #11 0x56627d1e in ecma_new_standard_error jerryscript/jerry-core/ecma/operations/ecma-exceptions.c:137
+    #12 0x56627f11 in ecma_new_standard_error_with_message jerryscript/jerry-core/ecma/operations/ecma-exceptions.c:203
+    #13 0x56627fe0 in ecma_raise_standard_error jerryscript/jerry-core/ecma/operations/ecma-exceptions.c:233
+    #14 0x56628587 in ecma_raise_type_error jerryscript/jerry-core/ecma/operations/ecma-exceptions.c:398
+    #15 0x5662d66b in ecma_op_iterator_next jerryscript/jerry-core/ecma/operations/ecma-iterator-object.c:261
+    #16 0x5662de77 in ecma_op_iterator_step jerryscript/jerry-core/ecma/operations/ecma-iterator-object.c:509
+    #17 0x566cfa7d in ecma_builtin_promise_perform_race jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-promise.c:141
+    #18 0x566d10c8 in ecma_builtin_promise_race_or_all jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-promise.c:545
+    #19 0x566d1221 in ecma_builtin_promise_race jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-promise.c:583
+    #20 0x566cf66a in ecma_builtin_promise_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-promise.inc.h:46
+    #21 0x5660dd91 in ecma_builtin_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1195
+    #22 0x5660df63 in ecma_builtin_dispatch_call jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1219
+    #23 0x5662a755 in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:828
+    #24 0x5662b465 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1131
+    #25 0x56691434 in opfunc_call jerryscript/jerry-core/vm/vm.c:764
+    #26 0x566a4717 in vm_execute jerryscript/jerry-core/vm/vm.c:4199
+    #27 0x566a4cbe in vm_run jerryscript/jerry-core/vm/vm.c:4301
+    #28 0x5668fb4a in vm_run_global jerryscript/jerry-core/vm/vm.c:321
+    #29 0x565d5c7c in jerry_run jerryscript/jerry-core/api/jerry.c:595
+
+previously allocated by thread T0 here:
+    #0 0xf79dac17 in __interceptor_malloc (/usr/lib32/libasan.so.5+0x113c17)
+    #1 0x56657b9c in jmem_heap_alloc jerryscript/jerry-core/jmem/jmem-heap.c:254
+    #2 0x56657c08 in jmem_heap_gc_and_alloc_block jerryscript/jerry-core/jmem/jmem-heap.c:289
+    #3 0x56657c95 in jmem_heap_alloc_block jerryscript/jerry-core/jmem/jmem-heap.c:323
+    #4 0x566a4d99 in ecma_alloc_extended_object jerryscript/jerry-core/ecma/base/ecma-alloc.c:109
+    #5 0x565f806e in ecma_create_object jerryscript/jerry-core/ecma/base/ecma-helpers.c:82
+    #6 0x56619221 in ecma_op_new_array_object jerryscript/jerry-core/ecma/operations/ecma-array-object.c:78
+    #7 0x56713908 in parser_new_tagged_template_literal jerryscript/jerry-core/parser/js/js-parser-tagged-template-literal.c:110
+    #8 0x566f4c48 in parser_parse_tagged_template_literal jerryscript/jerry-core/parser/js/js-parser-expr.c:1520
+    #9 0x566f7ccd in parser_process_unary_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:2155
+    #10 0x566fdba5 in parser_parse_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:3481
+    #11 0x56711749 in parser_parse_statements jerryscript/jerry-core/parser/js/js-parser-statm.c:3030
+    #12 0x56669ab2 in parser_parse_function jerryscript/jerry-core/parser/js/js-parser.c:2468
+    #13 0x567065a4 in parser_parse_function_statement jerryscript/jerry-core/parser/js/js-parser-statm.c:832
+    #14 0x56710e0c in parser_parse_statements jerryscript/jerry-core/parser/js/js-parser-statm.c:2871
+    #15 0x56669ab2 in parser_parse_function jerryscript/jerry-core/parser/js/js-parser.c:2468
+    #16 0x566eae1c in lexer_construct_function_object jerryscript/jerry-core/parser/js/js-lexer.c:2662
+    #17 0x566f3d4e in parser_parse_function_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:1348
+    #18 0x566f63a3 in parser_parse_unary_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:1818
+    #19 0x566fdb4e in parser_parse_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:3472
+    #20 0x566f7d84 in parser_process_unary_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:2176
+    #21 0x566fdba5 in parser_parse_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:3481
+    #22 0x566fd587 in parser_parse_block_expression jerryscript/jerry-core/parser/js/js-parser-expr.c:3421
+    #23 0x56712015 in parser_parse_statements jerryscript/jerry-core/parser/js/js-parser-statm.c:3152
+    #24 0x56667179 in parser_parse_source jerryscript/jerry-core/parser/js/js-parser.c:2177
+    #25 0x5666af83 in parser_parse_script jerryscript/jerry-core/parser/js/js-parser.c:2813
+    #26 0x565d56fd in jerry_parse jerryscript/jerry-core/api/jerry.c:447
+    #27 0x565d24f7 in main jerryscript/jerry-main/main-unix.c:750
+    #28 0xf76d8ee4 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x1eee4)
+
+SUMMARY: AddressSanitizer: heap-use-after-free jerryscript/jerry-core/ecma/base/ecma-gc.c:133 in ecma_ref_object
+Shadow bytes around the buggy address:
+  0x3e8e0090: fa fa 00 00 00 fa fa fa 00 00 00 fa fa fa 00 00
+  0x3e8e00a0: 00 fa fa fa 00 00 00 fa fa fa 00 00 00 fa fa fa
+  0x3e8e00b0: 00 00 00 fa fa fa fd fd fd fa fa fa fd fd fd fa
+  0x3e8e00c0: fa fa fd fd fd fa fa fa fd fd fd fa fa fa 00 00
+  0x3e8e00d0: 00 04 fa fa 00 00 02 fa fa fa fd fd fd fa fa fa
+=>0x3e8e00e0: fd fd fd fa fa fa fd fd fd fa fa fa[fd]fd fd fa
+  0x3e8e00f0: fa fa 00 00 00 00 fa fa 00 00 00 04 fa fa 00 00
+  0x3e8e0100: 00 fa fa fa fd fd fd fa fa fa 00 00 00 00 fa fa
+  0x3e8e0110: 00 00 00 00 fa fa 00 00 00 00 fa fa 00 00 00 00
+  0x3e8e0120: fa fa fd fd fd fa fa fa fd fd fd fd fa fa 00 00
+  0x3e8e0130: 00 fa fa fa 00 00 00 fa fa fa 00 00 00 fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==2285521==ABORTING

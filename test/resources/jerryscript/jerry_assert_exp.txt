@@ -1,0 +1,12 @@
+{
+  "address": "0x0030975a",
+  "address_type": "unknown address",
+  "condition": "ECMA_STRING_IS_REF_EQUALS_TO_ONE (string_p)",
+  "error_type": "Assertion",
+  "file": "jerryscript/jerry-core/ecma/base/ecma-literal-storage.c",
+  "frame_id": "6",
+  "function": "ecma_free_string_list",
+  "line": "75",
+  "sanitizer": "AddressSanitizer",
+  "security": "None"
+}

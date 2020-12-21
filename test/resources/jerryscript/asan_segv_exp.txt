@@ -1,0 +1,12 @@
+{
+  "address": "0x00000000",
+  "address_type": "unknown address",
+  "error_type": "null-dereference",
+  "file": "jerryscript/jerry-core/ecma/base/ecma-gc.c",
+  "frame_id": "0",
+  "function": "ecma_deref_object",
+  "line": "149",
+  "mem_access": "READ",
+  "sanitizer": "AddressSanitizer",
+  "security": "None"
+}

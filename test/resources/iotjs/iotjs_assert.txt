@@ -1,0 +1,2 @@
+ICE: Assertion '!ecma_number_is_nan (num)' failed at iotjs/deps/jerry/jerry-core/ecma/base/ecma-helpers-number.c(ecma_number_is_infinity):339.
+Error: ERR_FAILED_INTERNAL_ASSERTION

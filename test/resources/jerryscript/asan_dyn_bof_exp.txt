@@ -1,0 +1,12 @@
+{
+  "address": "0xff9de46c",
+  "address_type": "address",
+  "error_type": "dynamic-stack-buffer-overflow",
+  "file": "jerryscript/jerry-core/vm/vm.c",
+  "frame_id": "0",
+  "function": "vm_loop",
+  "line": "1165",
+  "mem_access": "WRITE of size 4",
+  "sanitizer": "AddressSanitizer",
+  "security": "High"
+}

@@ -1,0 +1,13 @@
+{
+  "address": "0x000000000028",
+  "address_type": "unknown address",
+  "char": "18",
+  "error_type": "null-dereference",
+  "file": "XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp",
+  "frame_id": "0",
+  "function": "JSC::BytecodeIntrinsicNode::emit_intrinsic_tryGetById(JSC::BytecodeGenerator&, JSC::RegisterID*)",
+  "line": "950",
+  "mem_access": "READ",
+  "sanitizer": "AddressSanitizer",
+  "security": "None"
+}

@@ -1,0 +1,33 @@
+ASSERTION FAILED: value.isCell() && value.asCell()->type() == CustomGetterSetterType
+./bytecode/ObjectPropertyConditionSet.cpp(403) : auto JSC::generateConditionsForPrototypePropertyHitCustom(JSC::VM &, JSC::JSCell *, JSC::JSGlobalObject *, JSC::Structure *, JSC::JSObject *, WTF::UniquedStringImpl *, unsigned int)::(anonymous class)::operator()(Vector<JSC::ObjectPropertyCondition> &, JSC::JSObject *) const
+1   0x1141ea34c WTFCrash
+2   0x114731684 WTFCrashWithInfo(int, char const*, char const*, int)
+3   0x114c6b244 JSC::generateConditionsForPrototypePropertyHitCustom(JSC::VM&, JSC::JSCell*, JSC::JSGlobalObject*, JSC::Structure*, JSC::JSObject*, WTF::UniquedStringImpl*, unsigned int)::$_5::operator()(WTF::Vector<JSC::ObjectPropertyCondition, 0ul, WTF::CrashOnOverflow, 16ul, WTF::FastMalloc>&, JSC::JSObject*) const
+4   0x114c5ed00 JSC::ObjectPropertyConditionSet JSC::(anonymous namespace)::generateConditions<JSC::generateConditionsForPrototypePropertyHitCustom(JSC::VM&, JSC::JSCell*, JSC::JSGlobalObject*, JSC::Structure*, JSC::JSObject*, WTF::UniquedStringImpl*, unsigned int)::$_5>(JSC::VM&, JSC::JSGlobalObject*, JSC::Structure*, JSC::JSObject*, JSC::generateConditionsForPrototypePropertyHitCustom(JSC::VM&, JSC::JSCell*, JSC::JSGlobalObject*, JSC::Structure*, JSC::JSObject*, WTF::UniquedStringImpl*, unsigned int)::$_5 const&)
+5   0x114c5ebdc JSC::generateConditionsForPrototypePropertyHitCustom(JSC::VM&, JSC::JSCell*, JSC::JSGlobalObject*, JSC::Structure*, JSC::JSObject*, WTF::UniquedStringImpl*, unsigned int)
+6   0x115623908 JSC::tryCachePutByID(JSC::JSGlobalObject*, JSC::CodeBlock*, JSC::JSValue, JSC::Structure*, JSC::CacheableIdentifier, JSC::PutPropertySlot const&, JSC::StructureStubInfo&, JSC::PutKind)
+7   0x115622bf8 JSC::repatchPutByID(JSC::JSGlobalObject*, JSC::CodeBlock*, JSC::JSValue, JSC::Structure*, JSC::CacheableIdentifier, JSC::PutPropertySlot const&, JSC::StructureStubInfo&, JSC::PutKind)
+8   0x11558b65c operationPutByIdNonStrictOptimize
+9   0xb80140a6c
+10  0x114715a48 llint_entry
+11  0x114715a48 llint_entry
+12  0x114715a48 llint_entry
+13  0x114715c84 llint_entry
+14  0x114715a48 llint_entry
+15  0x114715a48 llint_entry
+16  0x114715a48 llint_entry
+17  0x114715a48 llint_entry
+18  0x114715a48 llint_entry
+19  0x114715a48 llint_entry
+20  0x1146f0274 vmEntryToJavaScript
+21  0x115bcf06c JSC::JITCode::execute(JSC::VM*, JSC::ProtoCallFrame*)
+22  0x1154d7438 JSC::Interpreter::executeProgram(JSC::SourceCode const&, JSC::JSGlobalObject*, JSC::JSObject*)
+23  0x1158b9ad8 JSC::evaluate(JSC::JSGlobalObject*, JSC::SourceCode const&, JSC::JSValue, WTF::NakedPtr<JSC::Exception>&)
+24  0x1158b9c14 JSC::profiledEvaluate(JSC::JSGlobalObject*, JSC::ProfilingReason, JSC::SourceCode const&, JSC::JSValue, WTF::NakedPtr<JSC::Exception>&)
+25  0x11d86b414 WebCore::JSExecState::profiledEvaluate(JSC::JSGlobalObject*, JSC::ProfilingReason, JSC::SourceCode const&, JSC::JSValue, WTF::NakedPtr<JSC::Exception>&)
+26  0x11d86af70 WebCore::ScriptController::evaluateInWorld(WebCore::ScriptSourceCode const&, WebCore::DOMWrapperWorld&)
+27  0x11d86ad9c WebCore::ScriptController::evaluateInWorldIgnoringException(WebCore::ScriptSourceCode const&, WebCore::DOMWrapperWorld&)
+28  0x11d86b85c WebCore::ScriptController::evaluateIgnoringException(WebCore::ScriptSourceCode const&)
+29  0x11df9b5ac WebCore::ScriptElement::executeClassicScript(WebCore::ScriptSourceCode const&)
+30  0x11def55c0 WebCore::LoadableClassicScript::execute(WebCore::ScriptElement&)
+31  0x11df9c32c WebCore::ScriptElement::executeScriptAndDispatchEvent(WebCore::LoadableScript&)

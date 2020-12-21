@@ -1,0 +1,8 @@
+{
+  "condition": "value.isCell() && value.asCell()->type() == CustomGetterSetterType",
+  "error_type": "ASSERTION FAILED",
+  "file": "./bytecode/ObjectPropertyConditionSet.cpp",
+  "function": "auto JSC::generateConditionsForPrototypePropertyHitCustom(JSC::VM &, JSC::JSCell *, JSC::JSGlobalObject *, JSC::Structure *, JSC::JSObject *, WTF::UniquedStringImpl *, unsigned int)::(anonymous class)::operator()(Vector<JSC::ObjectPropertyCondition> &, JSC::JSObject *) const",
+  "line": "403",
+  "security": "None"
+}

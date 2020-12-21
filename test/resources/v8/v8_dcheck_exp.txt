@@ -1,0 +1,8 @@
+{
+  "condition": "IsAligned(ptr, kSlotDataAlignment)",
+  "error_type": "Debug check failed",
+  "file": "../../v8/src/objects/slots.h",
+  "function": "v8::internal::ScopeInfo::FunctionContextSlotIndex()",
+  "line": "77",
+  "security": "None"
+}

@@ -1,0 +1,7 @@
+{
+  "error_type": "SHOULD NEVER BE REACHED",
+  "file": "/Volumes/Data/EWS/WebKit/Source/JavaScriptCore/heap/Heap.cpp",
+  "function": "void JSC::Heap::endMarking()",
+  "line": "790",
+  "security": "None"
+}

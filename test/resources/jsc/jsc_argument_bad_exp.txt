@@ -1,0 +1,8 @@
+{
+  "condition": "time, time >= 0",
+  "error_type": "ARGUMENT BAD",
+  "file": "/Volumes/Data/slave/sierra-debug/build/Source/WebCore/platform/mac/WebVideoFullscreenHUDWindowController.mm",
+  "function": "NSString *timeToString(double)",
+  "line": "561",
+  "security": "None"
+}

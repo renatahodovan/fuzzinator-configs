@@ -1,0 +1,7 @@
+{
+  "condition": "!ecma_number_is_nan (num)",
+  "file": "iotjs/deps/jerry/jerry-core/ecma/base/ecma-helpers-number.c",
+  "function": "ecma_number_is_infinity",
+  "line": "339",
+  "type": "Assertion"
+}

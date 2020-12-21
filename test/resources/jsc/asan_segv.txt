@@ -1,0 +1,38 @@
+ASAN:DEADLYSIGNAL
+=================================================================
+==17333==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000028 (pc 0x7f12116555e5 bp 0x0000005803b0 sp 0x7fff0fd316f0 T0)
+==17333==The signal is caused by a READ memory access.
+==17333==Hint: address points to the zero page.
+    #0 0x7f12116555e4 in JSC::BytecodeIntrinsicNode::emit_intrinsic_tryGetById(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:950:18
+    #1 0x7f121166c22c in JSC::BytecodeGenerator::emitNodeInTailPosition(JSC::RegisterID*, JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:418:23
+    #2 0x7f121166c22c in JSC::BytecodeGenerator::emitNode(JSC::RegisterID*, JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:407
+    #3 0x7f121166c22c in JSC::BytecodeGenerator::emitNode(JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:423
+    #4 0x7f121166c22c in JSC::BytecodeGenerator::emitNodeForLeftHandSide(JSC::ExpressionNode*, bool, bool) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:486
+    #5 0x7f121166c22c in JSC::BinaryOpNode::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:1894
+    #6 0x7f121166c22c in JSC::BytecodeGenerator::emitNodeInTailPosition(JSC::RegisterID*, JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:418:23
+    #7 0x7f121166c22c in JSC::BytecodeGenerator::emitNode(JSC::RegisterID*, JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:407
+    #8 0x7f121166c22c in JSC::BytecodeGenerator::emitNode(JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:423
+    #9 0x7f121166c22c in JSC::BytecodeGenerator::emitNodeForLeftHandSide(JSC::ExpressionNode*, bool, bool) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:486
+    #10 0x7f121166c22c in JSC::BinaryOpNode::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:1894
+    #11 0x7f1211682407 in JSC::BytecodeGenerator::emitNodeInTailPosition(JSC::RegisterID*, JSC::ExpressionNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:418:23
+    #12 0x7f1211682407 in JSC::ReturnNode::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:3011
+    #13 0x7f1211679d32 in JSC::BytecodeGenerator::emitNodeInTailPosition(JSC::RegisterID*, JSC::StatementNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:391:16
+    #14 0x7f1211679d32 in JSC::SourceElements::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:2372
+    #15 0x7f1211679d32 in JSC::BlockNode::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:2392
+    #16 0x7f12116895e3 in JSC::BytecodeGenerator::emitNodeInTailPosition(JSC::RegisterID*, JSC::StatementNode*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:391:16
+    #17 0x7f12116895e3 in JSC::SourceElements::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:2372
+    #18 0x7f12116895e3 in JSC::ScopeNode::emitStatementsBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:3326
+    #19 0x7f12116895e3 in JSC::FunctionNode::emitBytecode(JSC::BytecodeGenerator&, JSC::RegisterID*) XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:3452
+    #20 0x7f12115c3e8a in JSC::BytecodeGenerator::generate() XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.cpp:120:22
+    #21 0x7f12115bdfa7 in JSC::ParserError JSC::BytecodeGenerator::generate<JSC::FunctionNode*, JSC::UnlinkedFunctionCodeBlock*&, JSC::DebuggerMode&, JSC::VariableEnvironment const*>(JSC::VM&, JSC::FunctionNode*&&, JSC::UnlinkedFunctionCodeBlock*&, JSC::DebuggerMode&, JSC::VariableEnvironment const*&&) XYZ/webkit/Source/JavaScriptCore/bytecompiler/BytecodeGenerator.h:296:39
+    #22 0x7f12115bd3a4 in JSC::generateUnlinkedFunctionCodeBlock(JSC::VM&, JSC::UnlinkedFunctionExecutable*, JSC::SourceCode const&, JSC::CodeSpecializationKind, JSC::DebuggerMode, JSC::UnlinkedFunctionKind, JSC::ParserError&, JSC::SourceParseMode) XYZ/webkit/Source/JavaScriptCore/bytecode/UnlinkedFunctionExecutable.cpp:71:13
+    #23 0x7f12115bd3a4 in JSC::UnlinkedFunctionExecutable::unlinkedCodeBlockFor(JSC::VM&, JSC::SourceCode const&, JSC::CodeSpecializationKind, JSC::DebuggerMode, JSC::ParserError&, JSC::SourceParseMode) XYZ/webkit/Source/JavaScriptCore/bytecode/UnlinkedFunctionExecutable.cpp:207
+    #24 0x7f121268ef1f in JSC::ScriptExecutable::newCodeBlockFor(JSC::CodeSpecializationKind, JSC::JSFunction*, JSC::JSScope*, JSC::JSObject*&) XYZ/webkit/Source/JavaScriptCore/runtime/Executable.cpp:314:43
+    #25 0x7f12126904c3 in JSC::ScriptExecutable::prepareForExecutionImpl(JSC::VM&, JSC::JSFunction*, JSC::JSScope*, JSC::CodeSpecializationKind, JSC::CodeBlock*&) XYZ/webkit/Source/JavaScriptCore/runtime/Executable.cpp:408:28
+    #26 0x7f12122a49a4 in JSC::JSObject* JSC::ScriptExecutable::prepareForExecution<JSC::FunctionExecutable>(JSC::VM&, JSC::JSFunction*, JSC::JSScope*, JSC::CodeSpecializationKind, JSC::CodeBlock*&) XYZ/webkit/Source/JavaScriptCore/runtime/Executable.h:773:12
+    #27 0x7f12122a49a4 in JSC::LLInt::setUpCall(JSC::ExecState*, JSC::Instruction*, JSC::CodeSpecializationKind, JSC::JSValue, JSC::LLIntCallLinkInfo*) XYZ/webkit/Source/JavaScriptCore/llint/LLIntSlowPaths.cpp:1278
+    #28 0x7f12122accbb  (XYZ/webkit/WebKitBuild/Release/lib/libJavaScriptCore.so.1+0x18abcbb)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV XYZ/webkit/Source/JavaScriptCore/bytecompiler/NodesCodegen.cpp:950:18 in JSC::BytecodeIntrinsicNode::emit_intrinsic_tryGetById(JSC::BytecodeGenerator&, JSC::RegisterID*)
+==17333==ABORTING

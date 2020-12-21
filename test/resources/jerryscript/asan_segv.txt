@@ -1,0 +1,57 @@
+ASAN:DEADLYSIGNAL
+=================================================================
+==42947==ERROR: AddressSanitizer: SEGV on unknown address 0x00000000 (pc 0x5674e257 bp 0xffb86508 sp 0xffb864f0 T0)
+==42947==The signal is caused by a READ memory access.
+==42947==Hint: address points to the zero page.
+    #0 0x5674e256 in ecma_deref_object jerryscript/jerry-core/ecma/base/ecma-gc.c:149
+    #1 0x566fd066 in ecma_op_function_get_super_constructor jerryscript/jerry-core/ecma/operations/ecma-function-object.c:688
+    #2 0x566ca189 in vm_loop.lto_priv.449 jerryscript/jerry-core/vm/vm.c:1732
+    #3 0x5668432e in vm_execute jerryscript/jerry-core/vm/vm.c:4028
+    #4 0x5668490a in vm_run jerryscript/jerry-core/vm/vm.c:4136
+    #5 0x566c312e in vm_run_eval jerryscript/jerry-core/vm/vm.c:393
+    #6 0x566facbe in ecma_op_eval_chars_buffer jerryscript/jerry-core/ecma/operations/ecma-eval.c:123
+    #7 0x566fa934 in ecma_op_eval jerryscript/jerry-core/ecma/operations/ecma-eval.c:58
+    #8 0x566a0391 in ecma_builtin_global_object_eval jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-global.c:111
+    #9 0x566a3b54 in ecma_builtin_global_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-global.c:1162
+    #10 0x56724d74 in ecma_builtin_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1056
+    #11 0x56724f4c in ecma_builtin_dispatch_call jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1080
+    #12 0x566fd2f5 in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:751
+    #13 0x566fe207 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1054
+    #14 0x566c4831 in opfunc_call.lto_priv.448 jerryscript/jerry-core/vm/vm.c:765
+    #15 0x56684392 in vm_execute jerryscript/jerry-core/vm/vm.c:4034
+    #16 0x5668490a in vm_run jerryscript/jerry-core/vm/vm.c:4136
+    #17 0x566c312e in vm_run_eval jerryscript/jerry-core/vm/vm.c:393
+    #18 0x566facbe in ecma_op_eval_chars_buffer jerryscript/jerry-core/ecma/operations/ecma-eval.c:123
+    #19 0x566fa934 in ecma_op_eval jerryscript/jerry-core/ecma/operations/ecma-eval.c:58
+    #20 0x566a0391 in ecma_builtin_global_object_eval jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-global.c:111
+    #21 0x566a3b54 in ecma_builtin_global_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-global.c:1162
+    #22 0x56724d74 in ecma_builtin_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1056
+    #23 0x56724f4c in ecma_builtin_dispatch_call jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1080
+    #24 0x566fd2f5 in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:751
+    #25 0x566fe207 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1054
+    #26 0x566c4831 in opfunc_call.lto_priv.448 jerryscript/jerry-core/vm/vm.c:765
+    #27 0x56684392 in vm_execute jerryscript/jerry-core/vm/vm.c:4034
+    #28 0x5668490a in vm_run jerryscript/jerry-core/vm/vm.c:4136
+    #29 0x566fd88a in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:855
+    #30 0x566fe847 in ecma_op_function_construct jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1240
+    #31 0x5662a652 in ecma_op_implicit_constructor_handler_heritage_cb jerryscript/jerry-core/vm/opcodes.c:818
+    #32 0x566fdada in ecma_op_function_call_external jerryscript/jerry-core/ecma/operations/ecma-function-object.c:912
+    #33 0x566fe4d0 in ecma_op_function_construct_external jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1138
+    #34 0x566fe62e in ecma_op_function_construct jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1191
+    #35 0x566c391c in vm_super_call.lto_priv.447 jerryscript/jerry-core/vm/vm.c:565
+    #36 0x566843a2 in vm_execute jerryscript/jerry-core/vm/vm.c:4040
+    #37 0x5668490a in vm_run jerryscript/jerry-core/vm/vm.c:4136
+    #38 0x566fd88a in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:855
+    #39 0x566fe847 in ecma_op_function_construct jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1240
+    #40 0x566c4dcb in opfunc_construct.lto_priv.445 jerryscript/jerry-core/vm/vm.c:850
+    #41 0x566843d0 in vm_execute jerryscript/jerry-core/vm/vm.c:4055
+    #42 0x5668490a in vm_run jerryscript/jerry-core/vm/vm.c:4136
+    #43 0x566c2e8a in vm_run_global jerryscript/jerry-core/vm/vm.c:320
+    #44 0x567440bd in jerry_run jerryscript/jerry-core/api/jerry.c:595
+    #45 0x567406bf in main jerryscript/jerry-main/main-unix.c:748
+    #46 0xf76f2e80 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x18e80)
+    #47 0x56620e00  (jerryscript/build/bin/jerry+0x19e00)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV jerryscript/jerry-core/ecma/base/ecma-gc.c:149 in ecma_deref_object
+==42947==ABORTING

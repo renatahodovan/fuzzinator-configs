@@ -1,0 +1,14 @@
+#0  0x00000000004bce85 in duk_js_putvar_activation (thr=0x7ae1b0, act=0x809d98, name=0x7c5b70, val=0x7ffff7f94da0, strict=0) at duk_js_var.c:1349
+#1  0x00000000004b0f24 in duk__prepost_incdec_var_helper (is_strict=0, op=125, tv_id=0x7c7ed8, idx_dst=2, thr=0x7ae1b0) at duk_js_executor.c:756
+#2  duk__js_execute_bytecode_inner (entry_thread=0x7ae1b0, entry_callstack_top=1) at duk_js_executor.c:3456
+#3  0x0000000000490638 in duk_js_execute_bytecode (exec_thr=0x7ae1b0) at duk_js_executor.c:2350
+#4  0x000000000047b9af in duk__handle_call_inner (thr=0x7ae1b0, num_stack_args=0, call_flags=0, idx_func=3) at duk_js_call.c:1568
+#5  0x000000000047a9e0 in duk_handle_call_unprotected (thr=0x7ae1b0, num_stack_args=0, call_flags=0) at duk_js_call.c:1153
+#6  0x0000000000407e2e in duk_call_method (ctx=0x7ae1b0, nargs=0) at duk_api_call.c:81
+#7  0x00000000004ca6f6 in wrapped_compile_execute (ctx=0x7ae1b0, udata=0x0) at examples/cmdline/duk_cmdline.c:305
+#8  0x000000000047dc77 in duk__handle_safe_call_inner (thr=0x7ae1b0, func=0x4ca45b <wrapped_compile_execute>, udata=0x0, idx_retbase=0, num_stack_rets=1, entry_valstack_bottom_index=0, entry_callstack_top=0, entry_catchstack_top=0) at duk_js_call.c:2112
+#9  0x000000000047d711 in duk_handle_safe_call (thr=0x7ae1b0, func=0x4ca45b <wrapped_compile_execute>, udata=0x0, num_stack_args=4, num_stack_rets=1) at duk_js_call.c:1943
+#10 0x0000000000408a2d in duk_safe_call (ctx=0x7ae1b0, func=0x4ca45b <wrapped_compile_execute>, udata=0x0, nargs=4, nrets=1) at duk_api_call.c:223
+#11 0x00000000004cac96 in handle_fh (ctx=0x7ae1b0, f=0x7c7c70, filename=0x7fffffffd7b2 "test-25538-140417715532968.js", bytecode_filename=0x0) at examples/cmdline/duk_cmdline.c:636
+#12 0x00000000004cae59 in handle_file (ctx=0x7ae1b0, filename=0x7fffffffd7b2 "test-25538-140417715532968.js", bytecode_filename=0x0) at examples/cmdline/duk_cmdline.c:695
+#13 0x00000000004cc000 in main (argc=2, argv=0x7fffffffd308) at examples/cmdline/duk_cmdline.c:1464

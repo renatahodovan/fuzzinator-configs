@@ -1,0 +1,75 @@
+=================================================================
+==6834==ERROR: AddressSanitizer: heap-buffer-overflow on address 0xf5400294 at pc 0xf7a702e0 bp 0xffdf9fa8 sp 0xffdf9b78
+READ of size 8 at 0xf5400294 thread T0
+    #0 0xf7a702df  (/usr/lib32/libasan.so.4+0xb42df)
+    #1 0x56735530 in ecma_number_parse_float jerryscript/jerry-core/ecma/base/ecma-helpers-number.c:945
+    #2 0x5663a6dd in ecma_builtin_intrinsic_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-intrinsic.c:127
+    #3 0x566feac4 in ecma_builtin_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1095
+    #4 0x566fec9c in ecma_builtin_dispatch_call jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1119
+    #5 0x566d7732 in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:782
+    #6 0x566d8602 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1085
+    #7 0x5669ec95 in opfunc_call.lto_priv.465 jerryscript/jerry-core/vm/vm.c:764
+    #8 0x5665f449 in vm_execute jerryscript/jerry-core/vm/vm.c:4130
+    #9 0x5665f9c1 in vm_run jerryscript/jerry-core/vm/vm.c:4232
+    #10 0x5669d2e1 in vm_run_global jerryscript/jerry-core/vm/vm.c:321
+    #11 0x56720e1a in jerry_run jerryscript/jerry-core/api/jerry.c:596
+    #12 0x5671d404 in main jerryscript/jerry-main/main-unix.c:759
+    #13 0xf77dbe80 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x18e80)
+    #14 0x565f8300  (jerryscript/build_gcc_asan_es2015/bin/jerry+0x1a300)
+
+0xf5400294 is located 0 bytes to the right of 20-byte region [0xf5400280,0xf5400294)
+allocated by thread T0 here:
+    #0 0xf7aa1f54 in malloc (/usr/lib32/libasan.so.4+0xe5f54)
+    #1 0x566bbdf0 in jmem_heap_alloc jerryscript/jerry-core/jmem/jmem-heap.c:254
+    #2 0x566bbece in jmem_heap_gc_and_alloc_block jerryscript/jerry-core/jmem/jmem-heap.c:289
+    #3 0x566bbf60 in jmem_heap_alloc_block jerryscript/jerry-core/jmem/jmem-heap.c:323
+    #4 0x5665fb30 in ecma_alloc_string_buffer jerryscript/jerry-core/ecma/base/ecma-alloc.c:194
+    #5 0x56738417 in ecma_new_ecma_string_from_utf8_buffer jerryscript/jerry-core/ecma/base/ecma-helpers-string.c:258
+    #6 0x56738417 in ecma_new_ecma_string_from_number jerryscript/jerry-core/ecma/base/ecma-helpers-string.c:568
+    #7 0x56715239 in ecma_op_to_string jerryscript/jerry-core/ecma/operations/ecma-conversion.c:449
+    #8 0x5663a595 in ecma_builtin_intrinsic_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtin-intrinsic.c:109
+    #9 0x566feac4 in ecma_builtin_dispatch_routine jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1095
+    #10 0x566fec9c in ecma_builtin_dispatch_call jerryscript/jerry-core/ecma/builtin-objects/ecma-builtins.c:1119
+    #11 0x566d7732 in ecma_op_function_call_simple jerryscript/jerry-core/ecma/operations/ecma-function-object.c:782
+    #12 0x566d8602 in ecma_op_function_call jerryscript/jerry-core/ecma/operations/ecma-function-object.c:1085
+    #13 0x5669ec95 in opfunc_call.lto_priv.465 jerryscript/jerry-core/vm/vm.c:764
+    #14 0x5665f449 in vm_execute jerryscript/jerry-core/vm/vm.c:4130
+    #15 0x5665f9c1 in vm_run jerryscript/jerry-core/vm/vm.c:4232
+    #16 0x5669d2e1 in vm_run_global jerryscript/jerry-core/vm/vm.c:321
+    #17 0x56720e1a in jerry_run jerryscript/jerry-core/api/jerry.c:596
+    #18 0x5671d404 in main jerryscript/jerry-main/main-unix.c:759
+    #19 0xf77dbe80 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x18e80)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/usr/lib32/libasan.so.4+0xb42df)
+Shadow bytes around the buggy address:
+  0x3ea80000: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x3ea80010: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x3ea80020: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x3ea80030: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x3ea80040: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x3ea80050: 00 00[04]fa fa fa 00 00 00 fa fa fa 00 00 00 fa
+  0x3ea80060: fa fa 00 00 00 fa fa fa 00 00 00 fa fa fa 00 00
+  0x3ea80070: 00 fa fa fa 00 00 00 fa fa fa 00 00 00 fa fa fa
+  0x3ea80080: 00 00 00 fa fa fa 00 00 00 fa fa fa 00 00 00 fa
+  0x3ea80090: fa fa 00 00 00 06 fa fa fd fd fd fa fa fa 00 00
+  0x3ea800a0: 00 fa fa fa 00 00 00 fa fa fa 00 00 00 fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==6834==ABORTING

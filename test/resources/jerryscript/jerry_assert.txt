@@ -1,0 +1,23 @@
+Script Error:
+ICE: Assertion 'ECMA_STRING_IS_REF_EQUALS_TO_ONE (string_p)' failed at jerryscript/jerry-core/ecma/base/ecma-literal-storage.c(ecma_free_string_list):75.
+Error: ERR_FAILED_INTERNAL_ASSERTION
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==3184474==ERROR: AddressSanitizer: ABRT on unknown address 0x0030975a (pc 0xf7f38b49 bp 0xfffa8c8c sp 0xfffa8c70 T0)
+    #0 0xf7f38b48  (linux-gate.so.1+0xb48)
+    #1 0xf772b4c5 in raise (/lib/i386-linux-gnu/libc.so.6+0x354c5)
+    #2 0xf77133f6 in abort (/lib/i386-linux-gnu/libc.so.6+0x1d3f6)
+    #3 0x567a644a in jerry_port_fatal jerryscript/jerry-port/default/default-fatal.c:30
+    #4 0x566dd3d9 in jerry_fatal jerryscript/jerry-core/jrt/jrt-fatals.c:63
+    #5 0x566dd41a in jerry_assert_fail jerryscript/jerry-core/jrt/jrt-fatals.c:87
+    #6 0x56683d14 in ecma_free_string_list jerryscript/jerry-core/ecma/base/ecma-literal-storage.c:75
+    #7 0x56683ee1 in ecma_finalize_lit_storage jerryscript/jerry-core/ecma/base/ecma-literal-storage.c:121
+    #8 0x56682af6 in ecma_finalize jerryscript/jerry-core/ecma/base/ecma-init-finalize.c:92
+    #9 0x5665a044 in jerry_cleanup jerryscript/jerry-core/api/jerry.c:238
+    #10 0x5665803b in main jerryscript/jerry-main/main-unix.c:994
+    #11 0xf7714ee4 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x1eee4)
+    #12 0x56654d04 in _start (jerryscript/build/bin/jerry+0x18d04)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: ABRT (linux-gate.so.1+0xb48)
+==3184474==ABORTING
