@@ -5,7 +5,11 @@
 # This file may not be copied, modified, or distributed except
 # according to those terms.
 
-def MockSubprocessCall(test, field='stderr', **kwargs):
+import fuzzinator
 
-    with open(test, 'r') as f:
-        return {field: f.read()}
+
+class MockSubprocessCall(fuzzinator.call.Call):
+
+    def __call__(self, test, field='stderr', **kwargs):
+        with open(test, 'r') as f:
+            return {field: f.read()}

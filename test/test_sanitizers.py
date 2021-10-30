@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2020-2021 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -11,7 +11,7 @@ import pytest
 
 from os.path import abspath, dirname, join
 
-from fuzzinator.config import config_get_callable
+from fuzzinator.config import config_get_object
 
 root_dir = dirname(dirname(abspath(__file__)))
 resources_dir = join(root_dir, 'test', 'resources')
@@ -47,10 +47,11 @@ def test_regex(sut, field, test, exp):
         join(root_dir, 'test', 'sut.ini')
     ])
 
-    sut_call, sut_call_kwargs = config_get_callable(config, 'sut.mock_' + sut, 'call')
+    sut_call = config_get_object(config, 'sut.mock_' + sut, 'call')
     assert sut_call, sut
-    issue = sut_call(test=join(resources_dir, sut, test), field=field, **sut_call_kwargs)
-    del issue[field]
-    issue = dict((k, v.decode() if isinstance(v, bytes) else v) for k, v in issue.items())
-    with open(join(resources_dir, sut, exp), 'r') as f:
-        assert f.read() == json.dumps(issue, indent=2, sort_keys=True)
+    with sut_call:
+        issue = sut_call(test=join(resources_dir, sut, test), field=field)
+        del issue[field]
+        issue = dict((k, v.decode() if isinstance(v, bytes) else v) for k, v in issue.items())
+        with open(join(resources_dir, sut, exp), 'r') as f:
+            assert f.read() == json.dumps(issue, indent=2, sort_keys=True)
